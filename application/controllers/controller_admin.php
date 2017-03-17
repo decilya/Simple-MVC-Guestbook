@@ -25,10 +25,9 @@ class Controller_Admin extends Controller
                 $data['post'] = $post;
             }
         }
+
         $data['items'] = $this->model->getAllGuestbook();
-
         $data['error'] = $error;
-
         $this->view->generate('admin_view.php', 'template_view.php', $data);
     }
 

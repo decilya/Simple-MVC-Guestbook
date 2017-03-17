@@ -24,13 +24,13 @@
             </div>
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li <?php if ($content_view == 'main_view.php'){ ?> class="active" <?php } ?>>
+                    <li <?php if ($content_view == 'main_view.php') { ?> class="active" <?php } ?>>
                         <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>">Задание</a>
                     </li>
-                    <li <?php if ($content_view == 'guestbook_view.php'){ ?> class="active" <?php } ?>>
+                    <li <?php if ($content_view == 'guestbook_view.php') { ?> class="active" <?php } ?>>
                         <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/guestbook">Гостевая книга</a>
                     </li>
-                    <li <?php if ($content_view == 'admin_view.php'){ ?> class="active" <?php } ?>>
+                    <li <?php if ($content_view == 'admin_view.php') { ?> class="active" <?php } ?>>
                         <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/admin">Админка</a>
                     </li>
                 </ul>
@@ -46,7 +46,7 @@
 </div>
 
 <footer class="container">
-    <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>">Тестовое задание</a> &copy; decilya 2017</a>
+    <a target="_blank" href="https://github.com/decilya/Simple-MVC-Guestbook">Тестовое задание</a> &copy; decilya 2017</a>
 </footer>
 
 </body>

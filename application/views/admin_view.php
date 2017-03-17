@@ -55,7 +55,7 @@
     if (!empty($data['items'])) {
         foreach ($data['items'] as $item) { ?>
             <tr>
-                <td><?php echo $item['created']; ?></td>
+                <td><?php echo date('d-m-Y H:i:s', $item['created']); ?></td>
                 <td><?php echo $item['user_name']; ?></td>
                 <td><?php echo $item['email']; ?></td>
                 <td><?php echo $item['title']; ?></td>
@@ -66,8 +66,6 @@
                 <?php } else { ?>
                     <td><a data-id="<?php echo $item['id']; ?>" data-status="1" class="btn btn-success action">Утвердить</a></td>
                 <?php } ?>
-
-
             </tr>
         <?php }
     } else { ?>

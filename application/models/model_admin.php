@@ -12,10 +12,11 @@ class Model_Admin extends DB
         return $data;
     }
 
-    public function update($messageId, $status){
+    public function update($messageId, $status)
+    {
         $sql = "UPDATE `guestbook` SET `activity`='$status' WHERE `id`='$messageId'";
 
-        if ($this->query($sql)){
+        if ($this->query($sql)) {
             return true;
         } else {
             return false;

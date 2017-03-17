@@ -10,41 +10,9 @@
     </div>
 <?php } ?>
 
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Дата добавления</th>
-        <th>Имя</th>
-        <th>E-mail</th>
-        <th>Заголовок</th>
-        <th>Сообщение</th>
-    </tr>
-    </thead>
-    <tbody>
-
-    <?php
-    if (!empty($data['items'])) {
-        foreach ($data['items'] as $item) { ?>
-            <tr>
-                <td><?php echo $item['created']; ?></td>
-                <td><?php echo $item['user_name']; ?></td>
-                <td><?php echo $item['email']; ?></td>
-                <td><?php echo $item['title']; ?></td>
-                <td><?php echo $item['text']; ?></td>
-            </tr>
-        <?php }
-    } else { ?>
-
-        <tr>
-            <td colspan="5">В гостевой книге пока еще нет сообщений.</td>
-        </tr>
-
-    <?php } ?>
-
-    </tbody>
-</table>
 
 <form method="post">
+    <h3>Оставить сообщение:</h3>
     <div class="form-group">
         <label for="inputName">Ваше имя:</label>
         <input value='<?php if (isset($data['post']['user_name'])){ echo $data['post']['user_name']; } ?>' type="text" class="form-control" name="post[user_name]" id="inputName" placeholder="Введите Ваше имя">
@@ -63,3 +31,39 @@
     </div>
     <button type="submit" class="btn btn-default">Отправить</button>
 </form>
+
+
+<h3>Список всех сообщений:</h3>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Дата добавления</th>
+        <th>Имя</th>
+        <th>E-mail</th>
+        <th>Заголовок</th>
+        <th>Сообщение</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <?php
+    if (!empty($data['items'])) {
+        foreach ($data['items'] as $item) { ?>
+            <tr>
+                <td><?php echo date('d-m-Y H:i:s', $item['created']); ?></td>
+                <td><?php echo $item['user_name']; ?></td>
+                <td><?php echo $item['email']; ?></td>
+                <td><?php echo $item['title']; ?></td>
+                <td><?php echo $item['text']; ?></td>
+            </tr>
+        <?php }
+    } else { ?>
+
+        <tr>
+            <td colspan="5">В гостевой книге пока еще нет сообщений.</td>
+        </tr>
+
+    <?php } ?>
+
+    </tbody>
+</table>
