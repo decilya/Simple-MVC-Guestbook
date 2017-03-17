@@ -30,6 +30,9 @@
                     <li <?php if ($content_view == 'guestbook_view.php'){ ?> class="active" <?php } ?>>
                         <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/guestbook">Гостевая книга</a>
                     </li>
+                    <li <?php if ($content_view == 'admin_view.php'){ ?> class="active" <?php } ?>>
+                        <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/admin">Админка</a>
+                    </li>
                 </ul>
             </div>
         </nav>

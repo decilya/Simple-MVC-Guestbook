@@ -4,14 +4,6 @@ class Model_Guestbook extends DB
 {
     private $tabel = 'guestbook';
 
-    public function getAllGuestbook()
-    {
-        $sql = "SELECT * FROM `" . $this->tabel . "`";
-        $data = $this->query($sql);
-
-        return $data;
-    }
-
     public function getAllActiveGuestbook()
     {
         $sql = "SELECT * FROM `" . $this->tabel . "` WHERE `activity`='1'";
@@ -32,7 +24,6 @@ class Model_Guestbook extends DB
 
         return $result;
     }
-
 
     public function validate($post = array())
     {
@@ -95,5 +86,6 @@ class Model_Guestbook extends DB
             return false;
         }
     }
+
 
 }

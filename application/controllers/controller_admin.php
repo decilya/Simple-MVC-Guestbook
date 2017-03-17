@@ -1,11 +1,11 @@
 <?php
 
-class Controller_Guestbook extends Controller
+class Controller_Admin extends Controller
 {
 
     function __construct()
     {
-        $this->model = new Model_Guestbook();
+        $this->model = new Model_Admin();
         $this->view = new View();
     }
 
@@ -25,11 +25,23 @@ class Controller_Guestbook extends Controller
                 $data['post'] = $post;
             }
         }
+        $data['items'] = $this->model->getAllGuestbook();
 
-        $data['items'] = $this->model->getAllActiveGuestbook();
         $data['error'] = $error;
 
-        $this->view->generate('guestbook_view.php', 'template_view.php', $data);
+        $this->view->generate('admin_view.php', 'template_view.php', $data);
+    }
+
+    function action_update(){
+
+        $messageId = $_REQUEST['messageId'];
+        $status = $_REQUEST['status'];
+
+        $result = $this->model->update($messageId, $status);
+
+        if ($result){
+            echo 1;
+        }
     }
 
 }
