@@ -20,7 +20,7 @@
     <header>
         <nav role="navigation" class="navbar navbar-default">
             <div class="navbar-header">
-                <a href="#" class="navbar-brand"><h1>Simple MVC Guestbook</h1></a>
+                <a  target="_blank" href="https://github.com/decilya/Simple-MVC-Guestbook" class="navbar-brand"><h1>Simple MVC Guestbook</h1></a>
             </div>
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
