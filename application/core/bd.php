@@ -8,9 +8,8 @@ class DB extends Model
     private $user = 'root';
     private $password = 'qwerty';
 
-    private $link;
-
-    private $result = '';
+    public $link;
+    public $result = '';
     public $record = '';
 
     function __construct()

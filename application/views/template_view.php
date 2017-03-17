@@ -26,6 +26,7 @@
                 <ul class="nav navbar-nav">
                     <li <?php if ($content_view == 'main_view.php'){ ?> class="active" <?php } ?>>
                         <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>">Задание</a>
+                    </li>
                     <li <?php if ($content_view == 'guestbook_view.php'){ ?> class="active" <?php } ?>>
                         <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/guestbook">Гостевая книга</a>
                     </li>

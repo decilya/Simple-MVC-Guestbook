@@ -20,6 +20,8 @@ class Controller_Guestbook extends Controller
 
             if (empty($error)) {
                 echo "Ошибок нет, можно сохронять.";
+                $this->model->create($post, false);
+                $data['post'] = $post;
             } else {
                 $data['post'] = $post;
             }

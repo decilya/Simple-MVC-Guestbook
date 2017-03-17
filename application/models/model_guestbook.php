@@ -6,7 +6,7 @@ class Model_Guestbook extends DB
 
     public function getAllGuestbook()
     {
-        $sql = "SELECT * FROM `".$this->tabel."`";
+        $sql = "SELECT * FROM `" . $this->tabel . "`";
         $data = $this->query($sql);
 
         return $data;
@@ -14,12 +14,12 @@ class Model_Guestbook extends DB
 
     public function getAllActiveGuestbook()
     {
-        $sql = "SELECT * FROM `".$this->tabel."` WHERE `activity`='1'";
+        $sql = "SELECT * FROM `" . $this->tabel . "` WHERE `activity`='1'";
         $this->query($sql);
 
         $result = array();
 
-        while($this->next()){
+        while ($this->next()) {
             $result[] = [
                 'id' => $this->val('id'),
                 'created' => $this->val('created'),
@@ -56,19 +56,44 @@ class Model_Guestbook extends DB
             ];
         }
 
-        if (strlen($post['text']) < 25 ) {
+        if (strlen($post['text']) < 25) {
             $error[] = [
                 'text' => 'Сообщение не может быть короче 25 символов!',
             ];
         }
 
-        if (empty($error)){
+        if (empty($error)) {
             return false;
-        }
-        else{
+        } else {
             return $error;
         }
 
+    }
+
+    public function create($post, $validate = true)
+    {
+        if ($validate) {
+            if ($this->validate($post) != false) {
+                return false;
+            }
+        }
+
+        $created = time();
+        $user_name = mysqli_real_escape_string($this->link, $post['user_name']);
+        $email = mysqli_real_escape_string($this->link, $post['email']);
+        $title = mysqli_real_escape_string($this->link, $post['title']);
+        $text = mysqli_real_escape_string($this->link, $post['text']);
+        $activity = 0;
+
+        $sql = "INSERT INTO `guestbook` (`id`, `created`, `user_name`, `email`, `title`, `text`, `activity`) VALUES (NULL, '$created', '$user_name', '$email', '$title', '$text', '$activity')";
+
+        $result = $this->query($sql);
+
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
