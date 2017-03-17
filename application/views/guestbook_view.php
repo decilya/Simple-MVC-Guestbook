@@ -29,6 +29,12 @@
         <label for="textarea">Сообщение:</label>
         <textarea name="post[text]" id="textarea" class="form-control"><?php if (isset($data['post']['text'])){ echo $data['post']['text']; } ?></textarea>
     </div>
+
+    <div class="form-group">
+        <label for="inputTitle">Капча:</label>
+        <input type="text" name="captcha" id="captcha" maxlength="6" size="6"/><img src="captcha.php"/></td>
+    </div>
+
     <button type="submit" class="btn btn-default">Отправить</button>
 </form>
 
