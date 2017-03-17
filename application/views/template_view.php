@@ -42,7 +42,7 @@
 </div>
 
 <footer class="container">
-    <a href="/">Тестовое задание</a> &copy; 2017</a>
+    <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>">Тестовое задание</a> &copy; decilya 2017</a>
 </footer>
 
 </body>
