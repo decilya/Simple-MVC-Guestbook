@@ -16,6 +16,8 @@
     </div>
 
     <div class="row col-md-12">
-        <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/guestbook" class="btn btn-success">Вернутся</a>
+        <a href="http://<?php echo $_SERVER['HTTP_HOST']; ?>/guestbook" class="btn btn-success">Вернуться</a>
     </div>
+<?php } else { ?>
+    <p>Похоже, что, что-то пошло не так...</p>
 <?php } ?>
