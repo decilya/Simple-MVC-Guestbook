@@ -1,37 +1,52 @@
 <h2>Гостевая книга</h2>
 
-<?php if (!empty($data['error'])) {?>
+<?php if (!empty($data['error'])) { ?>
     <div class="row error">
         <ul>
-            <?php foreach ($data['error'] as $item){ ?>
-                <li><?php foreach ($item as $key => $value){ echo $value; } ?></li>
+            <?php foreach ($data['error'] as $item) { ?>
+                <li><?php foreach ($item as $key => $value) {
+                        echo $value;
+                    } ?></li>
             <?php } ?>
         </ul>
     </div>
 <?php } ?>
 
+<?php if (isset($data['success'])) { ?>
+    <div class="row success">
+        <p>Сообщение успешно отправлено</p>
+    </div>
+<?php } ?>
 
 <form method="post">
     <h3>Оставить сообщение:</h3>
     <div class="form-group">
         <label for="inputName">Ваше имя:</label>
-        <input value='<?php if (isset($data['post']['user_name'])){ echo $data['post']['user_name']; } ?>' type="text" class="form-control" name="post[user_name]" id="inputName" placeholder="Введите Ваше имя">
+        <input value='<?php if (isset($data['post']['user_name'])) {
+            echo $data['post']['user_name'];
+        } ?>' type="text" class="form-control" name="post[user_name]" id="inputName" placeholder="Введите Ваше имя">
     </div>
     <div class="form-group">
         <label for="inputEmail">Адрес email:</label>
-        <input value='<?php if (isset($data['post']['email'])){ echo $data['post']['email']; } ?>' type="email" class="form-control" name="post[email]" id="inputEmail" placeholder="Введите email">
+        <input value='<?php if (isset($data['post']['email'])) {
+            echo $data['post']['email'];
+        } ?>' type="email" class="form-control" name="post[email]" id="inputEmail" placeholder="Введите email">
     </div>
     <div class="form-group">
         <label for="inputTitle">Заголовок:</label>
-        <input value='<?php if (isset($data['post']['title'])){ echo $data['post']['title']; } ?>' type="text" class="form-control" name="post[title]" id="inputTitle" placeholder="Введите заголовок">
+        <input value='<?php if (isset($data['post']['title'])) {
+            echo $data['post']['title'];
+        } ?>' type="text" class="form-control" name="post[title]" id="inputTitle" placeholder="Введите заголовок">
     </div>
     <div class="form-group">
         <label for="textarea">Сообщение:</label>
-        <textarea name="post[text]" id="textarea" class="form-control"><?php if (isset($data['post']['text'])){ echo $data['post']['text']; } ?></textarea>
+        <textarea name="post[text]" id="textarea" class="form-control"><?php if (isset($data['post']['text'])) {
+                echo $data['post']['text'];
+            } ?></textarea>
     </div>
 
     <div class="form-group">
-        <label for="inputTitle">Капча:</label>
+        <label for="captcha">Капча:</label>
         <input type="text" name="captcha" id="captcha" maxlength="6" size="6"/><img src="captcha.php"/></td>
     </div>
 
@@ -60,7 +75,14 @@
                 <td><?php echo $item['user_name']; ?></td>
                 <td><?php echo $item['email']; ?></td>
                 <td><?php echo $item['title']; ?></td>
-                <td><?php echo $item['text']; ?></td>
+                <td>
+                    <div class="box">
+                        <div class="box__in">
+                            <a href="/guestbook/post/?id=<?php echo $item['id']; ?>">
+                                <?php echo $item['text']; ?>
+                            </a>
+                        </div>
+                </td>
             </tr>
         <?php }
     } else { ?>

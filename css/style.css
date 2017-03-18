@@ -8,9 +8,19 @@ table{
     margin: 15px;
 }
 
-table td{
-    max-width: 250px;
-    white-space: nowrap;
+a{
+    cursor: pointer;
+}
+
+.box {
     overflow: hidden;
-    padding: 5px;
+    height: 100px;
+    width: 300px;
+}
+
+.box__in {
+    -webkit-column-width: 150px;
+    -moz-column-width: 150px;
+    column-width: 150px;
+    height: 100%;
 }

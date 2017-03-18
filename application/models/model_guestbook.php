@@ -87,5 +87,23 @@ class Model_Guestbook extends DB
         }
     }
 
+    public function getOnePost($id){
+        $sql = "SELECT * FROM `" . $this->tabel . "` WHERE `activity`='1' AND `id`='$id' LIMIT 1";
+        $this->query($sql);
+
+        while ($this->next()) {
+            $result = [
+                'id' => $this->val('id'),
+                'created' => $this->val('created'),
+                'user_name' => $this->val('user_name'),
+                'email' => $this->val('email'),
+                'title' => $this->val('title'),
+                'text' => $this->val('text'),
+            ];
+        }
+
+        return $result;
+    }
+
 
 }

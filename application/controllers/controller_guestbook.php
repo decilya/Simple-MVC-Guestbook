@@ -35,6 +35,7 @@ class Controller_Guestbook extends Controller
                 if (empty($error) && ($captcha)) {
                     $this->model->create($post, false);
                     $data['post'] = array();
+                    $data['success'] = 'Сообщение успешно отправлено';
                 } else {
                     $data['error'] = $error;
                 }
@@ -46,20 +47,13 @@ class Controller_Guestbook extends Controller
         $this->view->generate('guestbook_view.php', 'template_view.php', $data);
     }
 
-    function action_captcha()
-    {
-        session_start();
-        $ranStr = md5(microtime());
-        $ranStr = substr($ranStr, 0, 6);
-        $_SESSION['cap_code'] = $ranStr;
-        $newImage = imagecreatefromjpeg("img/cap_bg.jpg");
+    function action_post(){
+        $postId = $_REQUEST['id'];
 
-        imagejpeg($newImage);
+        $data = $this->model->getOnePost($postId);
 
-        $txtColor = imagecolorallocate($newImage, 0, 0, 0);
-        imagestring($newImage, 5, 5, 5, $ranStr, $txtColor);
-        header("Content-type: image/jpeg");
-        imagejpeg($newImage);
+        $this->view->generate('one_post_view.php', 'template_view.php', $data);
     }
+
 
 }

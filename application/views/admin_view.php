@@ -59,11 +59,21 @@
                 <td><?php echo $item['user_name']; ?></td>
                 <td><?php echo $item['email']; ?></td>
                 <td><?php echo $item['title']; ?></td>
-                <td><?php echo $item['text']; ?></td>
+
 
                 <?php if ($item['activity'] == '1'){ ?>
+                    <td>
+                        <a href="/guestbook/post/?id=<?php echo $item['id'];?>">
+                            <?php echo $item['text']; ?>
+                        </a>
+                    </td>
                     <td><a data-id="<?php echo $item['id']; ?>" data-status="0" class="btn btn-danger action">Отменить</a></td>
                 <?php } else { ?>
+                    <td>
+                        <span title="<?php echo $item['text']; ?>">
+                            <?php echo $item['text']; ?>
+                        </span>
+                    </td>
                     <td><a data-id="<?php echo $item['id']; ?>" data-status="1" class="btn btn-success action">Утвердить</a></td>
                 <?php } ?>
             </tr>
