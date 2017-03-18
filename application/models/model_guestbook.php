@@ -6,7 +6,7 @@ class Model_Guestbook extends DB
 
     public function getAllActiveGuestbook()
     {
-        $sql = "SELECT * FROM `" . $this->tabel . "` WHERE `activity`='1'";
+        $sql = "SELECT * FROM `" . $this->tabel . "` WHERE `activity`='1' ORDER BY `created` DESC";
         $this->query($sql);
 
         $result = array();

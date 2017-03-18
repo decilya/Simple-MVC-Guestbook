@@ -6,7 +6,7 @@ class Model_Admin extends DB
 
     public function getAllGuestbook()
     {
-        $sql = "SELECT * FROM `" . $this->tabel . "`";
+        $sql = "SELECT * FROM `" . $this->tabel . "` ORDER BY `created` DESC";
         $data = $this->query($sql);
 
         return $data;

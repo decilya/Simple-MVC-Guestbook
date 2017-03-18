@@ -47,7 +47,7 @@
     </div>
 </div>
 
-<footer class="container">
+<footer>
     <a target="_blank" href="https://github.com/decilya/Simple-MVC-Guestbook">Тестовое задание</a> &copy; decilya 2017</a>
 </footer>
 
