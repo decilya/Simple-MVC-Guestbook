@@ -28,16 +28,6 @@
 
 <h2>Админка</h2>
 
-<?php if (!empty($data['error'])) {?>
-    <div class="row error">
-        <ul>
-            <?php foreach ($data['error'] as $item){ ?>
-                <li><?php foreach ($item as $key => $value){ echo $value; } ?></li>
-            <?php } ?>
-        </ul>
-    </div>
-<?php } ?>
-
 <table class="table table-striped">
     <thead>
     <tr>
